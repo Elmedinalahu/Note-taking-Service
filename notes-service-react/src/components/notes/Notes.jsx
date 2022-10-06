@@ -18,7 +18,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 const Notes = () => {
 
-    const { notes, setNotes } = useContext(DataContext);
+    const { notes, setNotes, search } = useContext(DataContext);
 
     const onDragEnd = (result) => {
         if (!result.destination) 
@@ -42,7 +42,10 @@ const Notes = () => {
                                     ref={provided.innerRef}
                                 >
                                 {
-                                    notes.map((note, index) => (
+                                    notes.filter(note => {
+                                        return note.text.includes(search)
+                                        || note.heading.includes(search);
+                                    }).map((note, index) => (
                                         <Draggable key={note.id} draggableId={note.id} index={index}>
                                             {(provided, snapshot) => (
                                                 <Grid ref={provided.innerRef}

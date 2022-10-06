@@ -1,7 +1,9 @@
+import React from "react";
 
 import { AppBar, Toolbar, Typography, IconButton } from '@mui/material';
 import { Menu } from '@mui/icons-material';
 import { styled } from '@mui/material/styles';
+import SearchInput from "./SearchInput";
 
 const Header = styled(AppBar)`
   z-index: 1201;
@@ -32,6 +34,7 @@ const HeaderBar = ({ open, handleDrawer }) => {
         </IconButton>
         <img src={logo} alt="logo" style={{width: 30}} />
         <Heading>Note Taker</Heading>
+        <SearchInput />
       </Toolbar>
     </Header>
   )
