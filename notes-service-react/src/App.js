@@ -1,12 +1,11 @@
-//components
-import Home from './components/Home';
-import DataProvider from './context/DataProvider';
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
   return (
-    <DataProvider>
-      <Home />
-    </DataProvider>
+    <div className="App">
+      <h1>Note Taking Service</h1>
+    </div>
   );
 }
 
