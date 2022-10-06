@@ -1,7 +1,9 @@
 import './App.css';
+import { useNavigate } from "react-router-dom";
 
 
 const Login = () =>{
+    const navigate = useNavigate();
     return (
         <div>
             <div className="login">
@@ -17,7 +19,9 @@ const Login = () =>{
                 </div>
                 <button id="continue">Log in</button>
                 <p>Don't have an account?</p>
-                <a to="./SignUp">Register</a>
+                <a onClick={()=>{
+                        navigate('/signup');
+                }}>Register</a>
                 <span>or</span>
                 <a href="">Continue as a Guest</a>
             </form>

@@ -1,7 +1,10 @@
 import './App.css';
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+    const navigate = useNavigate();
     return (
+        
         <div>
             <div className="signUp">
                 <h1>Notes</h1>
@@ -25,7 +28,9 @@ const SignUp = () => {
                     </div>
                     <button id="continue">Sign Up</button>
                     <p>Already have an account?</p>
-                    <a to="/Login">Login</a>
+                    <a onClick={() => {
+                        navigate('/')
+                    }}>Login</a>
                     
                 </form>
             </div>
