@@ -17,13 +17,13 @@ const Login = () =>{
                 <span class="fa fa-lock"></span>
                 <input type="password" placeholder="Password" maxLength={20} />
                 </div>
-                <button id="continue">Log in</button>
+                <button onClick={()=>{
+                    navigate('/home');
+                }} id="continue">Log in</button>
                 <p>Don't have an account?</p>
                 <a onClick={()=>{
                         navigate('/signup');
                 }}>Register</a>
-                <span>or</span>
-                <a href="">Continue as a Guest</a>
             </form>
             </div>
         </div>

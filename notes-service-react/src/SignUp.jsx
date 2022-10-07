@@ -26,7 +26,9 @@ const SignUp = () => {
                     <span class="fa fa-lock"></span>
                     <input type="password" placeholder="Confirm Password" maxLength={20} />
                     </div>
-                    <button id="continue">Sign Up</button>
+                    <button onClick={() => {
+                        navigate('/home');
+                    }} id="continue">Sign up</button>
                     <p>Already have an account?</p>
                     <a onClick={() => {
                         navigate('/')
