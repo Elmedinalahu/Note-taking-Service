@@ -1,9 +1,15 @@
 import { useContext } from 'react';
-import { Card, CardContent, CardActions, Typography } from '@mui/material';
+import { Card, CardContent, CardActions, Typography, Tooltip, IconButton } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { ArchiveOutlined as Archive, DeleteOutlineOutlined as Delete } from '@mui/icons-material';
+import { ArchiveOutlined, DeleteOutlineOutlined as Delete } from '@mui/icons-material';
 import { DataContext } from '../../context/DataProvider';
 
+
+const Archive = styled(ArchiveOutlined)`
+    color: purple;
+    pointer: cursor;
+    margin-left: auto;
+`;
 
 const StyledCard = styled(Card)`
     border: 1px solid #e0e0e0;
@@ -35,16 +41,23 @@ const Note = ({ note }) => {
                     <Typography>{note.heading}</Typography>
                     <Typography>{note.text}</Typography>
                 </CardContent>
-                <CardActions>
+                <CardActions style={{ justifyContent: "flex-end" }}>
+                <Tooltip title="Archive">
+                    <IconButton>
                     <Archive 
-                        fontSize="small" 
-                        style={{ marginLeft: 'auto' }} 
+                        fontSize="small"
                         onClick={() => archiveNote(note)}
                     />
-                    <Delete 
+                    </IconButton>
+                </Tooltip>
+                <Tooltip title="Delete">
+                    <IconButton>
+                    <Delete
                         fontSize="small"
                         onClick={() => deleteNote(note)}
                     />
+                    </IconButton>
+                </Tooltip>
                 </CardActions>
         </StyledCard>
     )
