@@ -20,7 +20,7 @@ const Heading = styled(Typography)`
 
 
 const HeaderBar = ({ open, handleDrawer }) => {
-  const logo = 'https://seeklogo.com/images/G/google-keep-logo-0BC92EBBBD-seeklogo.com.png';
+  const logo = '	https://cdn.iconscout.com/icon/free/png-256/google-keep-3627621-3028847.png';
   
   return (
     <Header open={open}>
@@ -33,7 +33,7 @@ const HeaderBar = ({ open, handleDrawer }) => {
           <Menu />
         </IconButton>
         <img src={logo} alt="logo" style={{width: 30}} />
-        <Heading>Note Taker</Heading>
+        <Heading>NotesService</Heading>
         <SearchInput />
       </Toolbar>
     </Header>

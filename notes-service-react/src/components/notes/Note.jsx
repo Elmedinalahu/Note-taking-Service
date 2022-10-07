@@ -5,7 +5,6 @@ import { ArchiveOutlined, DeleteOutlineOutlined as Delete, Edit } from '@mui/ico
 import { DataContext } from '../../context/DataProvider';
 import { Link } from 'react-router-dom';
 
-
 const Archive = styled(ArchiveOutlined)`
     color: purple;
     pointer: cursor;
@@ -36,6 +35,7 @@ const Note = ({ note }) => {
         setDeleteNotes(prevArr => [note, ...prevArr]);
     }
 
+
     return (
         <StyledCard>
                 <CardContent>
@@ -46,7 +46,10 @@ const Note = ({ note }) => {
                 <Tooltip title="Edit">
                     <Link to={"/note/" + note.id + "/edit"}>
                     <IconButton>
-                    <Edit fontSize="small" />
+                    <Edit 
+                    fontSize="small"
+                    style={{color: 'purple'}}
+                    />
                     </IconButton>
                     </Link>
                 </Tooltip>
