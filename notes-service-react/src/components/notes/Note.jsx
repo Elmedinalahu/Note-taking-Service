@@ -1,8 +1,9 @@
 import { useContext } from 'react';
 import { Card, CardContent, CardActions, Typography, Tooltip, IconButton } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { ArchiveOutlined, DeleteOutlineOutlined as Delete } from '@mui/icons-material';
+import { ArchiveOutlined, DeleteOutlineOutlined as Delete, Edit } from '@mui/icons-material';
 import { DataContext } from '../../context/DataProvider';
+import { Link } from 'react-router-dom';
 
 
 const Archive = styled(ArchiveOutlined)`
@@ -42,6 +43,13 @@ const Note = ({ note }) => {
                     <Typography>{note.text}</Typography>
                 </CardContent>
                 <CardActions style={{ justifyContent: "flex-end" }}>
+                <Tooltip title="Edit">
+                    <Link to={"/note/" + note.id + "/edit"}>
+                    <IconButton>
+                    <Edit fontSize="small" />
+                    </IconButton>
+                    </Link>
+                </Tooltip>
                 <Tooltip title="Archive">
                     <IconButton>
                     <Archive 
