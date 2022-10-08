@@ -5,9 +5,11 @@ import { useNavigate } from "react-router-dom";
 const Login = () =>{
     const navigate = useNavigate();
     return (
-        <div>
+        <div className='container'>
+            
+            <div className='loginimg'></div>
             <div className="login">
-            <h1>Notes</h1>
+            <h2>LOGIN</h2>
             <form method = "Post" action = "">
                 <div class="fields">
                 <span class="username fa fa-user"></span>
@@ -20,10 +22,12 @@ const Login = () =>{
                 <button onClick={()=>{
                     navigate('/home');
                 }} id="continue">Log in</button>
-                <p>Don't have an account?</p>
+                <div className='sign'>
+                <span>Don't have an account?</span>
                 <a onClick={()=>{
                         navigate('/signup');
-                }}>Register</a>
+                }}>Sign Up</a>
+                </div>
             </form>
             </div>
         </div>

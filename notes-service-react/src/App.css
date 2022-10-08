@@ -47,33 +47,50 @@ body{
   align-items: center;
   min-height: 100vh;
 }
-.login {
-  width: 330px;
-  height: 490px;
-  background-color: #B7B5E4;
-  border-radius: 8px;
+
+.container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.loginimg{
+  width: 390px;
+  height: 520px;
+  background-image: url("C://Users//online//Desktop//log.JPG");
+  background-size: cover;
+  
   padding: 10px 0px;
   box-shadow: 1px 0px 9px  #b6b6b6;
-  border: 1px solid #aba8e3;
+}
+.login {
+  width: 450px;
+  height: 540px;
+  background-color: #fae6fa;
+  padding: 10px 0px;
+  box-shadow: 1px 0px 9px  #b6b6b6;
   
 }
-.login h1 {
-  font-size: 55px;
-  color: #322E18;
-  
+
+.login h2{
+  margin: 80px 0px -55px 65px;
+  text-align: left;
+  color: #601060;
 }
+
 .fields{
   position: relative;
   border: 0px solid black;
   padding: 0;
   background-color: #ffffff;
   border-radius: 8px;
-  width: 80%;
+  width: 70%;
   height: 45px;
   align-items: center;
   text-align: center;
-  margin-top: 12px;
-  box-shadow: 0px 0px 7px rgb(117, 116, 116);
+  margin-top: 35px;
+  box-shadow: 0px 0px 7px  #cd79cd;
+  
 }
 .login form{
   display: flex;
@@ -91,6 +108,7 @@ body{
   outline: none;
   font-size: 17px;
 }
+
 .fields span{
   background-color: white;
   font-size: 15px;
@@ -98,15 +116,16 @@ body{
   padding: 10px;
   align-items: center;
   text-align: center;
-  color: #322E18;
+  color: #cd79cd;
 }
 
+
 #continue{
-  width: 80%;
-  height: 35px;
-  margin-top: 10px;
+  width: 60%;
+  height: 45px;
+  margin-top: 35px;
   border-radius: 8px;
-  background-color: #322E18;
+  background-color: #cd79cd;
   border: none;
   outline: none;
   color: white;
@@ -115,27 +134,29 @@ body{
   box-shadow: 0px 0px 7px  rgb(117, 116, 116);
 }
 #continue:hover{
-  background-color: rgb(27, 27, 27);
+  background-color: #861d86;
   color: rgb(203, 203, 203);
+}
+.sign{
+  display: flex;
 }
 a{
   text-decoration: underline;
+  color:#cd79cd
 }
 .signUp{
-  width: 330px;
-  height: 530px;
-  background-color: #B7B5E4;
-  border-radius: 8px;
+  width: 450px;
+  height: 540px;
+  background-color: #fae6fa;
   padding: 10px 0px;
-  box-shadow: 1px 0px 9px #b6b6b6;
-  border: 1px solid #aba8e3;
-
+  box-shadow: 1px 0px 9px  #b6b6b6;
 }
 
-.signUp h1 {
-  font-size: 55px;
-  color: #322E18;
-
+.signUp h2 {
+    margin: 80px 0px -45px 65px;
+    text-align: left;
+    color: #601060;
+  
 }
 
 .signUp form {
