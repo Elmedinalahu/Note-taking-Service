@@ -57,9 +57,8 @@ body{
 .loginimg{
   width: 390px;
   height: 520px;
-  background-image: url("C://Users//online//Desktop//log.JPG");
+  background-image: url("./logo.jfif");
   background-size: cover;
-  
   padding: 10px 0px;
   box-shadow: 1px 0px 9px  #b6b6b6;
 }
@@ -86,8 +85,10 @@ body{
   border-radius: 8px;
   width: 70%;
   height: 45px;
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  text-align: center;
+  text-align: left;
   margin-top: 35px;
   box-shadow: 0px 0px 7px  #cd79cd;
   
@@ -97,16 +98,17 @@ body{
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  margin-top: 15%;
+  margin-top: 25%;
 }
 .fields input{
   padding: 0px;
-  width: 80%;
+  width: 90%;
   height: 45px;
   margin-top: 0px;
   border: none;
   outline: none;
   font-size: 17px;
+  text-align: left;
 }
 
 .fields span{
@@ -114,8 +116,7 @@ body{
   font-size: 15px;
   width: 20px;
   padding: 10px;
-  align-items: center;
-  text-align: center;
+  text-align: left;
   color: #cd79cd;
 }
 
@@ -164,5 +165,43 @@ a{
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  margin-top: 10%;
+  margin-top: 20%;
+}
+
+@media screen and (max-width:480px){
+  .loginimg {
+      display: none;
+    }
+  
+    .login {
+      width: 350px;
+    }
+  .fields input {
+    padding: 0px;
+    width: 80%;
+    height: 45px;
+    margin-top: 0px;
+    border: none;
+    outline: none;
+    font-size: 17px;
+  }
+    .fields {
+      width: 80%;
+      height: 50px;
+    }
+    .login h2 {
+      margin: 80px 65px -55px 65px;
+      text-align: center;
+    }
+    /* body{
+      background-image: url("./logo.jfif");
+    } */
+    .signUp {
+           width: 350px;
+    }
+    .signUp h2 {
+          margin: 80px 65px -45px 65px;
+          text-align: center;
+    }
+
 }

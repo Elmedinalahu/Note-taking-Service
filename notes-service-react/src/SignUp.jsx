@@ -13,7 +13,7 @@ const SignUp = () => {
                     <div class="fields">
                     <span class="fa fa-envelope"></span>
                     <input type="email
-                    " placeholder="Email" maxLength={20} />
+                    " placeholder="Email" />
                     </div>
                     <div class="fields">
                     <span class="fa fa-lock"></span>
@@ -27,7 +27,7 @@ const SignUp = () => {
                         navigate('/home');
                     }} id="continue">Sign up</button>
                     <div>
-                        <span>Already have an account?</span>
+                        <span>Already have an account? </span>
                         <a onClick={() => {
                             navigate('/')
                         }}>Login</a>

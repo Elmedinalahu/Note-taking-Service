@@ -13,7 +13,7 @@ const Login = () =>{
             <form method = "Post" action = "">
                 <div class="fields">
                 <span class="username fa fa-user"></span>
-                <input type="text" placeholder="Username" />
+                <input type="Email" placeholder="Email" />
                 </div>
                 <div class="fields">
                 <span class="fa fa-lock"></span>
@@ -23,7 +23,7 @@ const Login = () =>{
                     navigate('/home');
                 }} id="continue">Log in</button>
                 <div className='sign'>
-                <span>Don't have an account?</span>
+                <span>Don't have an account? </span>
                 <a onClick={()=>{
                         navigate('/signup');
                 }}>Sign Up</a>
