@@ -14,7 +14,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 const DeleteNotes = () => {
 
-    const { deleteNotes } = useContext(DataContext);
+    const { deleteNotes, search } = useContext(DataContext);
 
     return (
         <Box sx={{ display: 'flex', width: '100%' }}>
@@ -22,7 +22,10 @@ const DeleteNotes = () => {
                 <DrawerHeader />
                 <Grid container>
                     {
-                        deleteNotes.map(deleteNote => (
+                        deleteNotes.filter(deleteNote => {
+                        return deleteNote.text.includes(search)
+                        || deleteNote.heading.includes(search);
+                        }).map(deleteNote => (
                             <Grid item>
                                 <DeleteNote deleteNote={deleteNote} />
                             </Grid>

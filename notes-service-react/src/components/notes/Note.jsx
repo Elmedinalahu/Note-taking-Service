@@ -65,6 +65,7 @@ const Note = ({ note }) => {
                     <IconButton>
                     <Delete
                         fontSize="small"
+                        style={{color: 'purple'}}
                         onClick={() => deleteNote(note)}
                     />
                     </IconButton>

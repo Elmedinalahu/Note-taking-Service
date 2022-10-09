@@ -14,7 +14,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 const Archives = () => {
 
-    const { archiveNotes } = useContext(DataContext);
+    const { archiveNotes, search } = useContext(DataContext);
 
     return (
         <Box sx={{ display: 'flex', width: '100%' }}>
@@ -22,7 +22,10 @@ const Archives = () => {
                 <DrawerHeader />
                 <Grid container>
                     {
-                        archiveNotes.map(archive => (
+                        archiveNotes.filter(archive => {
+                        return archive.text.includes(search)
+                        || archive.heading.includes(search);
+                        }).map(archive => (
                             <Grid item>
                                 <Archive archive={archive} />
                             </Grid>

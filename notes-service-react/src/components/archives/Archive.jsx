@@ -12,6 +12,7 @@ const StyledCard = styled(Card)`
     width: 240px;
     margin: 8px;
     box-shadow: none;
+    color:purple;
 `
 
 const Archive = ({ archive }) => {

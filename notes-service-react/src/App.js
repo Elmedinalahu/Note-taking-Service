@@ -11,8 +11,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <div class = "App">
-      
     <Router>
         <Routes>
           <Route path="/login" element={<Login />} />
@@ -20,10 +18,6 @@ function App() {
           <Route path="/*" element={<Home />}/>
         </Routes>
       </Router>
-    
-      
-    </div>
-
   );
 }
 
