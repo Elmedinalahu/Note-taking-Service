@@ -1,14 +1,16 @@
 
-
 //components
 import Home from './components/Home';
 import DataProvider from './context/DataProvider';
+<<<<<<< HEAD
 import './App.css';
 import Login from './Login.jsx';
 import SignUp from './SignUp.jsx';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React, { useState } from "react";
 
+=======
+>>>>>>> 3e981df7f1c3ef9d74fe68728d4854f3329212ca
 
 function App() {
   const [note, setData] = useState("");
@@ -21,6 +23,7 @@ function App() {
     });
   };
   return (
+<<<<<<< HEAD
     
     <Router>
         <Routes>
@@ -29,6 +32,11 @@ function App() {
           <Route path="/*" element={<Home />}/>
         </Routes>
       </Router>
+=======
+    <DataProvider>
+      <Home />
+    </DataProvider>
+>>>>>>> 3e981df7f1c3ef9d74fe68728d4854f3329212ca
   );
 }
 
