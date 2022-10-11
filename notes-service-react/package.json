@@ -10,6 +10,7 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.1.2",
     "node-sass": "^7.0.3",
     "react": "^17.0.2",
     "react-beautiful-dnd": "^13.1.0",
@@ -19,7 +20,6 @@
     "uuid": "^8.3.2",
     "web-vitals": "^2.1.4"
   },
-  
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -45,10 +45,7 @@
     ]
   },
   "devDependencies": {
-    "tailwind-styled-components": "^2.2.0",
-    "sass": "^1.49.0"
+    "sass": "^1.49.0",
+    "tailwind-styled-components": "^2.2.0"
   }
 }
-
-  
-
