@@ -13,17 +13,19 @@ import DataProvider from '../context/DataProvider';
 
 const Home = () => {
     return (
-        <DataProvider>
+        
             <Box style={{ display: 'flex', width: '100%' }}>
+                <Router>
                 <SwipeDrawer />
-                <Routes>
-                    <Route path='/*' element={<Notes />} />
-                    <Route path='/archive' element={<Archives />} />
-                    <Route path='/delete' element={<DeleteNotes />} />
-                    <Route path='/note/:noteID/*' element={<EditNotes />} />
-                </Routes>
+                    <Routes>
+                        <Route path='/*' element={<Notes />} />
+                        <Route path='/archive' element={<Archives />} />
+                        <Route path='/delete' element={<DeleteNotes />} />
+                        <Route path='/note/:noteID/*' element={<EditNotes />} />
+                    </Routes>
+                </Router>
             </Box>
-        </DataProvider>
+        
     )
 }
 

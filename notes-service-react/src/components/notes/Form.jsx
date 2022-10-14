@@ -12,7 +12,7 @@ const Container = styled(Box)`
     margin: auto;
     box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
     border-color: #e0e0e0;
-    width: 600px;
+    width: 80%;
     border-radius: 8px;
     min-height: 30px;
     padding: 10px 15px;
