@@ -20,61 +20,40 @@ const SignUp = () => {
           <form className="mt-8 space-y-6" action="#" method="POST">
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="-space-y-px rounded-md shadow-sm">
-                <div>
-
-                <label htmlFor="FirstName" className="sr-only">
-                 First Name
-                </label>
-                <input
-                  id="FirstName"
-                  name="FirstName"
-                  type="FirstName"
-                  autoComplete="FirstName"
-                  required
-                  className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-violet-500 focus:outline-none focus:ring-violet-500 sm:text-sm"
-                  placeholder="First Name"/>
-                  </div>
-                  <div>
-
-              <label htmlFor="LastName" className="sr-only">
-                  Last Name
-                </label>
-                <input
-                  id="LastName"
-                  name="LastName"
-                  type="LastName"
-                  autoComplete="LastName"
-                  required
-                  className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-violet-500 focus:outline-none focus:ring-violet-500 sm:text-sm"
-                  placeholder="Last Name"/>
-                  </div>
-                  <div>
-
-                 <label htmlFor="email-address" className="sr-only">
+              <div>
+                 <label htmlFor="email" className="sr-only">
                   Email
                 </label>
                 <input
-                  id="email-address"
-                  name="email-address"
-                  type="email-address"
-                  autoComplete="email-address"
+                  type="email"
+                  autoComplete="email"
                   required
                   className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-violet-500 focus:outline-none focus:ring-violet-500 sm:text-sm"
                   placeholder="Email"/>
                   </div>
                   <div>
-
+                    <label htmlFor="password" className="sr-only">
+                        New Password
+                        </label>
+                        <input
+                          type="password"
+                          autoComplete="password"
+                          required
+                          className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-violet-500 focus:outline-none focus:ring-violet-500 sm:text-sm"
+                          placeholder="New Password"/>
+                        </div>
+                      <div>
+                  </div>
+                  <div>
                 <label htmlFor="password" className="sr-only">
                   Password
                 </label>
                 <input
-                  id="password"
-                  name="password"
                   type="password"
                   autoComplete="current-password"
                   required
                   className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-violet-500 focus:outline-none focus:ring-violet-500 sm:text-sm"
-                  placeholder="Password"/>
+                  placeholder="Confirm Password"/>
                   </div>
             </div>
 
