@@ -19,7 +19,7 @@ const SignUp = () => {
             confirmPassword: confirmPassword
         }
 
-        axios.post(url, data)
+        axios.post('https://localhost:7259/api/User/register', data)
         .then((result) => {
             const dt = result.data;
         })
@@ -61,12 +61,12 @@ const SignUp = () => {
                   </div>
                   <div>
 
-                <label htmlFor="password" className="sr-only">
+                <label htmlFor="cpassword" className="sr-only">
                   Password
                 </label>
                 <input
-                  id="password"
-                  name="password"
+                  id="cpassword"
+                  name="cpassword"
                   type="password"
                   autoComplete="current-password"
                   required
@@ -104,6 +104,7 @@ const SignUp = () => {
             <div>
               <button
                 type="submit"
+                onClick={(e) => handleSave(e)}
                 className="group relative flex w-full justify-center rounded-md border border-transparent bg-violet-600 py-2 px-4 text-sm font-medium text-white hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2">
                 <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                 </span>
