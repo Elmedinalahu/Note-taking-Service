@@ -1,6 +1,6 @@
 import React from "react";
 
-import { AppBar, Toolbar, Typography, IconButton } from '@mui/material';
+import { AppBar, Toolbar, Typography, IconButton, Button } from '@mui/material';
 import { Menu } from '@mui/icons-material';
 import { styled } from '@mui/material/styles';
 import SearchInput from "./SearchInput";
@@ -17,7 +17,15 @@ const Heading = styled(Typography)`
   font-size: 24px;
   margin-left: 25px;
 `
-
+const LogOut = styled(Button)({
+  position:"absolute",
+  right:"15px",
+  color: "purple",
+  height: 40,
+  padding: '0 30px',
+  textTransform: 'none',
+  fontSize: 'Large'
+});
 
 const HeaderBar = ({ open, handleDrawer }) => {
   const logo = '	https://cdn.iconscout.com/icon/free/png-256/google-keep-3627621-3028847.png';
@@ -33,8 +41,10 @@ const HeaderBar = ({ open, handleDrawer }) => {
           <Menu />
         </IconButton>
         <img src={logo} alt="logo" style={{width: 30}} />
-        <Heading>NotesService</Heading>
+        <Heading>NotesServicee</Heading>
         <SearchInput />
+        <LogOut href='/login' >Log Out</LogOut>;
+
       </Toolbar>
     </Header>
   )
