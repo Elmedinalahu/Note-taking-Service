@@ -8,6 +8,7 @@ import { DataContext } from '../../context/DataProvider';
 
 //components
 import Note from '../notes/Note';
+import EditNote from './EditNote';
 
 const DrawerHeader = styled('div')(({ theme }) => ({
     ...theme.mixins.toolbar,
@@ -26,7 +27,7 @@ const EditNotes = (props) => {
                 <Grid container>
                     <Routes>
                         <Route path='/*' element={<Note note={note} />} />
-                        <Route path='/edit' element={<Note note={note} />} />
+                        <Route path='/edit' element={<EditNote noteID={noteID} />} />
                     </Routes>
                 </Grid>
             </Box>

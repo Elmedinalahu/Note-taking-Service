@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { Card, CardContent, CardActions, Typography, Tooltip, IconButton } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { ArchiveOutlined, DeleteOutlineOutlined as Delete, Edit } from '@mui/icons-material';
+import { ArchiveOutlined, DeleteOutlineOutlined as Delete, Edit, Search } from '@mui/icons-material';
 import { DataContext } from '../../context/DataProvider';
 import { Link } from 'react-router-dom';
 
@@ -47,6 +47,16 @@ const Note = ({ note }) => {
                     <Link to={"/note/" + note.id + "/edit"}>
                     <IconButton>
                     <Edit 
+                    fontSize="small"
+                    style={{color: 'purple'}}
+                    />
+                    </IconButton>
+                    </Link>
+                </Tooltip>
+                <Tooltip title="View">
+                    <Link to={"/note/" + note.id}>
+                    <IconButton>
+                    <Search 
                     fontSize="small"
                     style={{color: 'purple'}}
                     />
