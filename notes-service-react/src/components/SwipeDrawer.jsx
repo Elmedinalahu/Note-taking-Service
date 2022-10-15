@@ -6,6 +6,7 @@ import MuiDrawer from '@mui/material/Drawer';
 //components
 import HeaderBar from './HeaderBar';
 import NavList from './NavList';
+import { useMediaQuery } from '@mui/material';
 
 const drawerWidth = 240;
 
@@ -58,6 +59,15 @@ function SwipeDrawer() {
     const handleDrawer = () => {
         setOpen(prevState => !prevState);
     };
+    const matches = useMediaQuery('(max-width:600px)');
+
+    React.useEffect(() => {
+        if (matches) {
+            setOpen(false);
+        } else {
+            setOpen(true);
+        }
+    }, [matches]);
 
     return (
         <Box sx={{ display: 'flex' }}>

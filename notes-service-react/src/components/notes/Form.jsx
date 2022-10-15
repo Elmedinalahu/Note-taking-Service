@@ -13,6 +13,10 @@ const Container = styled(Box)`
     box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
     border-color: #e0e0e0;
     width: 600px;
+    @media (max-width: 900px) {
+        width: 90%;
+        margin: 0px;
+    }
     border-radius: 8px;
     min-height: 30px;
     padding: 10px 15px;

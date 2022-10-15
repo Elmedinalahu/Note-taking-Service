@@ -40,11 +40,12 @@ const Archive = ({ archive }) => {
                 <CardActions>
                     <Unarchive 
                         fontSize="small" 
-                        style={{ marginLeft: 'auto' }} 
+                        style={{ marginLeft: 'auto', cursor: 'pointer' }} 
                         onClick={() => unArchiveNote(archive)}
                     />
                     <Delete 
                         fontSize="small"
+                        style={{cursor: 'pointer'}}
                         onClick={() => deleteNote(archive)}
                     />
                 </CardActions>

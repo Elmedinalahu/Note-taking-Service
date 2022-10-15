@@ -1,8 +1,10 @@
 import React, { useContext, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { DataContext } from '../../context/DataProvider';
 
 
 export default function EditNote({ noteID }) {
+    const navigate = useNavigate();
     const { notes, setNotes } = useContext(DataContext);
 
     const [note, setNote] = useState(notes.find(note => note.id === noteID));
@@ -18,6 +20,7 @@ export default function EditNote({ noteID }) {
         e.preventDefault();
         const updatedNotes = notes.map(item => item.id === note.id ? note : item);
         setNotes(updatedNotes);
+        navigate('/home');
     }
 
     return (

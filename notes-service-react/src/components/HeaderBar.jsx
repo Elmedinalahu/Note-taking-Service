@@ -41,9 +41,8 @@ const HeaderBar = ({ open, handleDrawer }) => {
           <Menu />
         </IconButton>
         <img src={logo} alt="logo" style={{width: 30}} />
-        <Heading>NotesServicee</Heading>
+        <Heading>NotesService</Heading>
         <SearchInput />
-        <LogOut href='/login' >Log Out</LogOut>;
 
       </Toolbar>
     </Header>
