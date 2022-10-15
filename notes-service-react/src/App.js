@@ -6,6 +6,7 @@ import Login from './Login.jsx';
 import SignUp from './SignUp.jsx';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React, { useState } from "react";
+import Homepage from './components/homepage/Homepage';
 
 function App() {
   const [note, setData] = useState("");
@@ -18,9 +19,9 @@ function App() {
     });
   };
   return (
-
     <Router>
         <Routes>
+          <Route path="/homepage" element={<Homepage />}/>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />}/>
           <Route path="/*" element={<Home />}/>
