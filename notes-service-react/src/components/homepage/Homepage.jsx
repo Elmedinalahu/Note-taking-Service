@@ -18,15 +18,17 @@ const Homepage = () => {
   <body className='bg-gradient-to-r from-violet-400 to-indigo-300'>
     <div className='flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4 text-gray-700' >
         <h1 className='w-full text-3xl font-bold text-indigo-500' >NotesService.</h1>
-        <ul className='hidden md:flex'>
-          
-          <li><a href="/signup">
-            <button className='bg-gradient-to-r from-indigo-400 to-indigo-500 hover:from-violet-400 hover:to-violet-500 rounded-lg w-[200px] font-medium my-6 mx-4 py-3 text-gray-700 uppercase ' >SignUp</button>
-            </a></li>
-          <a href="/login">
-            <button className='bg-gradient-to-r from-indigo-400 to-indigo-500 hover:from-violet-400 hover:to-violet-500 rounded-lg w-[200px] font-medium my-6 mx-4 py-3 text-gray-700 uppercase ' >LogIn</button>
+        <ul className='hidden md:flex'>          
+          <li>
+            <a href="/signup">
+              <button className='bg-gradient-to-r from-indigo-400 to-indigo-500 hover:from-violet-400 hover:to-violet-500 rounded-lg w-[200px] font-medium my-6 mx-4 py-3 text-gray-700 uppercase ' >SignUp</button>
             </a>
-
+          </li>  
+          <li>
+            <a href="/login">
+              <button className='bg-gradient-to-r from-indigo-400 to-indigo-500 hover:from-violet-400 hover:to-violet-500 rounded-lg w-[200px] font-medium my-6 mx-4 py-3 text-gray-700 uppercase ' >LogIn</button>
+            </a>
+          </li>
         </ul>
         <div onClick={handleNav} className='block md:hidden'>
           {!nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
