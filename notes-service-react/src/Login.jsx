@@ -33,13 +33,13 @@ const Login = () =>{
       .catch((error) => {
         console.log(error);
       });
-      useEffect(() => {
+      //useEffect(() => {
       const loggedInUser = localStorage.getItem('user');
       if (loggedInUser) {
         const foundUser = JSON.parse(loggedInUser);
         setUser(foundUser);
       }
-      }, []);
+     // }, []);
 
   }
 
