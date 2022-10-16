@@ -21,10 +21,10 @@ function App() {
   return (
     <Router>
         <Routes>
-          <Route path="/homepage" element={<Homepage />}/>
+          <Route path="/*" element={<Homepage />}/>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />}/>
-          <Route path="/*" element={<Home />}/>
+          <Route path="/home" element={<Home />}/>
         </Routes>
       </Router>
   );
