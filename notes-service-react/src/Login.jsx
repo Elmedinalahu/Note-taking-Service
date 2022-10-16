@@ -1,10 +1,49 @@
 import './App.css';
 import { useNavigate } from "react-router-dom";
 import logoImg from './logo.jfif'
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 
 
 const Login = () =>{
     const navigate = useNavigate();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [user, setUser] = useState('');
+    
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const url = 'https://localhost:7259/api/User/login';
+    const data = {
+      email: email,
+      password: password,
+     
+    }
+
+    axios.post('https://localhost:7259/api/User/login', data)
+      .then((result) => {
+        const dt = result.data;
+        setUser(result.data);
+        localStorage.setItem('user', result.data)
+        console.log(dt)
+        navigate('/home', { replace: true });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+      useEffect(() => {
+      const loggedInUser = localStorage.getItem('user');
+      if (loggedInUser) {
+        const foundUser = JSON.parse(loggedInUser);
+        setUser(foundUser);
+      }
+      }, []);
+
+  }
+
+    
     return (
         <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="w-full max-w-md space-y-8">
@@ -31,6 +70,7 @@ const Login = () =>{
                   required
                   className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-violet-500 focus:outline-none focus:ring-violet-500 sm:text-sm"
                   placeholder="Email address"
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div>
@@ -43,6 +83,7 @@ const Login = () =>{
                   required
                   className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                   placeholder="Password"
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
             </div>
@@ -68,6 +109,7 @@ const Login = () =>{
             <div>
               <button
                 type="submit"
+                onClick={(e) => handleSubmit(e)}
                 className="group relative flex w-full justify-center rounded-md border border-transparent bg-violet-600 py-2 px-4 text-sm font-medium text-white hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2">
                 <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                 </span>

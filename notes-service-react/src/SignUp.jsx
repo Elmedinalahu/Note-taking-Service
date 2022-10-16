@@ -5,11 +5,13 @@ import React , {useState} from 'react';
 import axios from 'axios';
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    
 
-    const handleSave = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
 
         const url = 'https://localhost:7259/api/User/register';
@@ -22,10 +24,12 @@ const SignUp = () => {
         axios.post('https://localhost:7259/api/User/register', data)
         .then((result) => {
             const dt = result.data;
+            navigate('/login', {replace: true});
         })
         .catch((error) => {
             console.log(error);
         })
+      
     }
 
     return (
@@ -104,7 +108,7 @@ const SignUp = () => {
             <div>
               <button
                 type="submit"
-                onClick={(e) => handleSave(e)}
+                onClick={(e) => handleSubmit(e)}
                 className="group relative flex w-full justify-center rounded-md border border-transparent bg-violet-600 py-2 px-4 text-sm font-medium text-white hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2">
                 <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                 </span>
