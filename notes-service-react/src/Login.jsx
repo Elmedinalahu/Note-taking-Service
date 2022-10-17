@@ -3,16 +3,14 @@ import { useNavigate } from "react-router-dom";
 import logoImg from './logo.jfif'
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-
-
 const Login = () =>{
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [user, setUser] = useState('');
-    
 
-  const handleSubmit = async e => {
+
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const url = 'https://localhost:7259/api/User/login';
@@ -21,30 +19,28 @@ const Login = () =>{
       password: password,
      
     }
-
     axios.post('https://localhost:7259/api/User/login', data)
       .then((result) => {
         const dt = result.data;
         setUser(result.data);
         localStorage.setItem('user', result.data)
-        console.log(result.data)
+        console.log(dt)
         navigate('/home', { replace: true });
       })
       .catch((error) => {
         console.log(error);
       });
-      
+      //useEffect(() => {
+      const loggedInUser = localStorage.getItem('user');
+      if (loggedInUser) {
+        const foundUser = JSON.parse(loggedInUser);
+        setUser(foundUser);
+      }
+     // }, []);
+
   }
-  // useEffect(() => {
-  //     const loggedInUser = localStorage.getItem('user');
-  //     if (loggedInUser) {
-  //       const foundUser = JSON.parse(loggedInUser);
-  //       setUser(foundUser);
-  //     }
-  //    }, []);
 
 
-    
     return (
         <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="w-full max-w-md space-y-8">
@@ -88,7 +84,6 @@ const Login = () =>{
                 />
               </div>
             </div>
-
             <div className="flex items-center justify-between">
               <div className="flex items-center">
                 <input
