@@ -1,9 +1,8 @@
-
-
 import { List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import { LightbulbOutlined as Lightbulb, ArchiveOutlined as Archive, DeleteOutlineOutlined as Delete, Logout } from '@mui/icons-material';
 import { Link, useNavigate } from 'react-router-dom';
 
+// This is the navigation list component
 const NavList = () => {
     const navigate = useNavigate();
 
@@ -16,10 +15,12 @@ const NavList = () => {
 
     ]
 
+
     const onClick = (url) => {
         navigate(url);
     }
     
+    // This function is used to navigate to the respective page
     return (
         <List>
         {

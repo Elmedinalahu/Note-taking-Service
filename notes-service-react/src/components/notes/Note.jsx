@@ -10,6 +10,7 @@ const Archive = styled(ArchiveOutlined)`
     pointer: cursor;
     margin-left: auto;
 `;
+
 const StyledCard = styled(Card)`
     border: 1px solid #e0e0e0;
     border-radius: 8px;
@@ -18,24 +19,14 @@ const StyledCard = styled(Card)`
     box-shadow: none;
 `
 
+
 const Note = ({ note }) => {
 
-    const { notes, setNotes, setArchiveNotes, setDeleteNotes } = useContext(DataContext);
-
-    const archiveNote = (note) => {
-        const updatedNotes = notes.filter(data => data.id !== note.id);
-        setNotes(updatedNotes);
-        setArchiveNotes(prevArr => [note, ...prevArr]);
-    }
-
-    const deleteNote = (note) => {
-        const updatedNotes = notes.filter(data => data.id !== note.id);
-        setNotes(updatedNotes);
-        setDeleteNotes(prevArr => [note, ...prevArr]);
-    }
-
+    const { notes, archiveNote, removeNote } = useContext(DataContext);
 
     return (
+        // This is the note card
+                // This is the note card actions for archive, view, delete and edit
         <StyledCard>
                 <CardContent>
                     <Typography>{note.heading}</Typography>
@@ -75,7 +66,7 @@ const Note = ({ note }) => {
                     <Delete
                         fontSize="small"
                         style={{color: 'purple'}}
-                        onClick={() => deleteNote(note)}
+                        onClick={() => removeNote(note.id)}
                     />
                     </IconButton>
                 </Tooltip>

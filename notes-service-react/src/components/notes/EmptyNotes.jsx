@@ -1,5 +1,3 @@
-
-
 import { LightbulbOutlined as Lightbulb } from '@mui/icons-material';
 import { Typography, Box, styled } from '@mui/material';
 
@@ -20,6 +18,7 @@ const Container = styled(Box)`
     margin-top: 20vh
 `
 
+// This is the empty notes component
 const EmptyNotes = () => {
     return (
         <Container>

@@ -1,5 +1,7 @@
 import React from 'react'
 
+
+// Some info about the app
 export const Analytics = () => {
   return (
     <div className='w-full bg-white py-24 px-4'>

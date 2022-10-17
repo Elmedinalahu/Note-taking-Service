@@ -1,5 +1,4 @@
 import React from "react";
-
 import { AppBar, Toolbar, Typography, IconButton, Button } from '@mui/material';
 import { Menu } from '@mui/icons-material';
 import { styled } from '@mui/material/styles';
@@ -27,6 +26,7 @@ const LogOut = styled(Button)({
   fontSize: 'Large'
 });
 
+// This is the header component
 const HeaderBar = ({ open, handleDrawer }) => {
   const logo = '	https://cdn.iconscout.com/icon/free/png-256/google-keep-3627621-3028847.png';
   

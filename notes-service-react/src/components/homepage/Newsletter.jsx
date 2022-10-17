@@ -1,5 +1,6 @@
 import React from 'react'
 
+// This section is for the quality of the app
 export const Newsletter = () => {
   return (
     <div className='w-full py-16 text-white px-4'>

@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-
 import { Card, CardContent, CardActions, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { RestoreFromTrashOutlined as Restore, DeleteForeverOutlined as Delete } from '@mui/icons-material';
@@ -12,22 +11,9 @@ const StyledCard = styled(Card)`
     margin: 8px;
     box-shadow: none;
 `
-
+//delete note component 
 const DeleteNote = ({ deleteNote }) => {
-
-    const { deleteNotes, setNotes, setArchiveNotes, setDeleteNotes } = useContext(DataContext);
-
-    const restoreNote = (deleteNote) => {
-        const updatedNotes = deleteNotes.filter(data => data.id !== deleteNote.id);
-        setDeleteNotes(updatedNotes);
-        setNotes(prevArr => [deleteNote, ...prevArr]);
-    }
-
-    const removeNote = (deleteNote) => {
-        const updatedNotes = deleteNotes.filter(data => data.id !== deleteNote.id);
-        setDeleteNotes(updatedNotes);
-    }
-
+    const { removeNote, restoreNote } = useContext(DataContext);
     return (
         <StyledCard>
                 <CardContent>
@@ -36,15 +22,14 @@ const DeleteNote = ({ deleteNote }) => {
                 </CardContent>
                 <CardActions>
                     <Delete 
-                        fontSize="small" 
-                        style={{ marginLeft: 'auto', color: 'red' }} 
-                        onClick={() => removeNote(deleteNote)}
-                    />
+                        fontSize="small"
+                        style={{ marginLeft: 'auto', color: 'red', cursor: 'pointer' }} 
+                        //remove note from deleteNotes array
+                        onClick={() => removeNote(deleteNote.id)} />
                     <Restore 
                         fontSize="small"
-                        style={{color:'green'}}
-                        onClick={() => restoreNote(deleteNote)}
-                    />
+                        style={{color:'green', cursor: 'pointer' }}
+                        onClick={() => restoreNote(deleteNote.id)}/>
                 </CardActions>
         </StyledCard>
     )

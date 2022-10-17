@@ -1,10 +1,11 @@
 import React from 'react'
 import Typed from 'react-typed';
 
+// This is the first section of the app
 export const Hero = () => {
   return (
     <div className=''>
-        <div className='max-w-[800px] mt-[70px] w-full mb-44 mx-auto text-center flex flex-col'>
+        <div className='max-w-[800px] mt-[70px] w-full mb-48 mx-auto text-center flex flex-col'>
              <p className='text-indigo-500 font-bold p-2 uppercase' >Mos humb asnjë shkrim</p>
              <h1 className='md:text-5xl sm:text-5xl text-3xl font-bold md:py-6 uppercase text-gray-700'>
                  Ruaj shkrimet tua, <br /> kudo që je.

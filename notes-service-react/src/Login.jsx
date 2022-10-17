@@ -9,7 +9,7 @@ const Login = () =>{
     const [password, setPassword] = useState('');
     const [user, setUser] = useState('');
 
-
+// This function is used to login the user
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -40,7 +40,7 @@ const Login = () =>{
 
   }
 
-
+// This function is used to navigate to the sign up page
     return (
         <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="w-full max-w-md space-y-8">

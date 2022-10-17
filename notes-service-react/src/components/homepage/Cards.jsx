@@ -1,5 +1,6 @@
 import React from 'react'
 
+// Some images telling the user what the app is about
 export const Cards = () => {
   return (
     <div className='w-full pt-[8rem] px-4 bg-white'>

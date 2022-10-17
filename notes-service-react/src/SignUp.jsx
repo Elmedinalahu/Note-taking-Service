@@ -4,13 +4,15 @@ import logoImg from './logo.jfif';
 import React , {useState} from 'react';
 import axios from 'axios';
 
+
+// This is the sign up page
 const SignUp = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     
-
+// This function is used to sign up the user
     const handleSave = (e) => {
         e.preventDefault();
 

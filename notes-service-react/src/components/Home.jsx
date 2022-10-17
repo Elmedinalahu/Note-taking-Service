@@ -8,6 +8,7 @@ import DeleteNotes from './delete/DeleteNotes';
 import EditNotes from './edit/EditNotePage';
 import DataProvider from '../context/DataProvider';
 
+// This is the main page
 const Home = () => {
     return (
         <DataProvider>

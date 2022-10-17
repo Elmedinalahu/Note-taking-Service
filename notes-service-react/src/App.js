@@ -8,7 +8,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React, { useState } from "react";
 import Homepage from './components/homepage/Homepage';
 
-function App() {
+// This is the main page
+  function App() {
   const [note, setData] = useState("");
   const getNote = () => {
   
@@ -21,7 +22,7 @@ function App() {
   return (
     <Router>
         <Routes>
-          <Route path="/homepage" element={<Homepage />}/>
+          <Route path="/" element={<Homepage />}/>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />}/>
           <Route path="/*" element={<Home />}/>
@@ -29,5 +30,6 @@ function App() {
       </Router>
   );
 }
+
 
 export default App;;

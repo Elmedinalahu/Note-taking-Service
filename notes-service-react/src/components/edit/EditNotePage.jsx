@@ -1,12 +1,9 @@
+//components
 import { useContext } from 'react';
 import { Route, Routes, useParams } from "react-router-dom";
-
 import { Box, Grid } from '@mui/material';
 import { styled } from '@mui/material/styles';
-
 import { DataContext } from '../../context/DataProvider';
-
-//components
 import Note from '../notes/Note';
 import EditNote from './EditNote';
 
@@ -19,7 +16,8 @@ const EditNotes = (props) => {
 
     const { notes } = useContext(DataContext);
 
-    const note = notes[0] || {};
+    const note = notes.find(note => note.id === noteID);
+
     return (
         <Box sx={{ display: 'flex', width: '100%' }}>
             <Box sx={{ p: 3, width: '100%' }}>

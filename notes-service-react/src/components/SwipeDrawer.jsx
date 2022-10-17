@@ -9,7 +9,7 @@ import NavList from './NavList';
 import { useMediaQuery } from '@mui/material';
 
 const drawerWidth = 240;
-
+// This is the drawer component
 const openedMixin = (theme) => ({
     width: drawerWidth,
     transition: theme.transitions.create('width', {
@@ -52,6 +52,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
         }),
     }),
 );
+
 
 function SwipeDrawer() {
     const [open, setOpen] = React.useState(true);

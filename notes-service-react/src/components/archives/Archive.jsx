@@ -1,9 +1,7 @@
 import { useContext } from 'react';
-
 import { Card, CardContent, CardActions, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { UnarchiveOutlined as Unarchive, DeleteOutlineOutlined as Delete } from '@mui/icons-material';
-
 import { DataContext } from '../../context/DataProvider';
 
 const StyledCard = styled(Card)`
@@ -15,20 +13,16 @@ const StyledCard = styled(Card)`
     color:purple;
 `
 
+// archive note component
 const Archive = ({ archive }) => {
 
-    const { archiveNotes, setNotes, setArchiveNotes, setDeleteNotes } = useContext(DataContext);
-
-    const unArchiveNote = (archive) => {
-        const updatedNotes = archiveNotes.filter(data => data.id !== archive.id);
-        setArchiveNotes(updatedNotes);
-        setNotes(prevArr => [archive, ...prevArr]);
-    }
+    const { archiveNotes, removeNote, unarchiveNote, setArchiveNotes, setDeleteNotes } = useContext(DataContext);
 
     const deleteNote = (archive) => {
         const updatedNotes = archiveNotes.filter(data => data.id !== archive.id);
         setArchiveNotes(updatedNotes);
         setDeleteNotes(prevArr => [archive, ...prevArr]);
+        removeNote(archive.id);
     }
 
     return (
@@ -41,7 +35,7 @@ const Archive = ({ archive }) => {
                     <Unarchive 
                         fontSize="small" 
                         style={{ marginLeft: 'auto', cursor: 'pointer' }} 
-                        onClick={() => unArchiveNote(archive)}
+                        onClick={() => unarchiveNote(archive.id)}
                     />
                     <Delete 
                         fontSize="small"

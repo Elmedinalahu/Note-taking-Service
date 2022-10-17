@@ -2,10 +2,10 @@ import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { DataContext } from '../../context/DataProvider';
 
-
+// This is the edit note page
 export default function EditNote({ noteID }) {
     const navigate = useNavigate();
-    const { notes, setNotes } = useContext(DataContext);
+    const { editNote, notes } = useContext(DataContext);
 
     const [note, setNote] = useState(notes.find(note => note.id === noteID));
     const handleChange = (e) => {
@@ -18,8 +18,7 @@ export default function EditNote({ noteID }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const updatedNotes = notes.map(item => item.id === note.id ? note : item);
-        setNotes(updatedNotes);
+        editNote(note);
         navigate('/home');
     }
 
