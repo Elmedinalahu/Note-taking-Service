@@ -12,7 +12,7 @@ const Login = () =>{
     const [user, setUser] = useState('');
     
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
 
     const url = 'https://localhost:7259/api/User/login';
@@ -27,21 +27,22 @@ const Login = () =>{
         const dt = result.data;
         setUser(result.data);
         localStorage.setItem('user', result.data)
-        console.log(dt)
+        console.log(result.data)
         navigate('/home', { replace: true });
       })
       .catch((error) => {
         console.log(error);
       });
-      //useEffect(() => {
-      const loggedInUser = localStorage.getItem('user');
-      if (loggedInUser) {
-        const foundUser = JSON.parse(loggedInUser);
-        setUser(foundUser);
-      }
-     // }, []);
-
+      
   }
+  // useEffect(() => {
+  //     const loggedInUser = localStorage.getItem('user');
+  //     if (loggedInUser) {
+  //       const foundUser = JSON.parse(loggedInUser);
+  //       setUser(foundUser);
+  //     }
+  //    }, []);
+
 
     
     return (

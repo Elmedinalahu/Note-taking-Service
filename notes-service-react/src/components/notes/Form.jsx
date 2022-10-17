@@ -6,6 +6,10 @@ import { v4 as uuid } from 'uuid';
 
 import { DataContext } from '../../context/DataProvider';
 
+import axios from 'axios';
+import { useEffect } from 'react';
+import { ClearAll } from '@mui/icons-material';
+
 const Container = styled(Box)`
     display: flex;
     flex-direction: column;
@@ -28,47 +32,62 @@ const note = {
     text: ''
 }
 
-const Form = () => {
+function Form() {
 
-    const [showTextField, setShowTextField] = useState(false);
-    const [addNote, setAddNote] = useState({ ...note, id: uuid() });
+    const [heading, setHeading] = useState('');
+    const [text, setText] = useState('');
+    const [data, setData] = useState([]);
+    const [notes, getNotes] = useState([]);
 
-    const { setNotes } = useContext(DataContext);
-    
-    const containerRef = useRef();
+    useEffect(() => {
+        getData();
+    }, []);
 
-    const handleClickAway = () => {
-        setShowTextField(false);
-        containerRef.current.style.minheight = '30px'
-        setAddNote({ ...note, id: uuid() });
-
-        if (addNote.heading || addNote.text) {
-            setNotes(prevArr => [addNote, ...prevArr])
-        }
+    const getData = () => {
+        const url = 'https://localhost:7259/api/Notes';
+        axios.get(url).then((response) => {
+            const GetAllNotes = response.data;
+            console.log(notes);
+            getNotes(GetAllNotes);
+        }).catch((err)=>{
+            console.log(err);
+        });
     }
     
-    const onTextAreaClick = () => {
-        setShowTextField(true);
-        containerRef.current.style.minheight = '70px'
+
+    const handleClickAway = (e) => {
+            e.preventDefault();
+
+        const url = 'https://localhost:7259/api/Notes';
+            const data = {
+                heading: heading,
+                text: text,
+            }
+
+            axios.post(url, data)
+                .then((result) => {
+                    
+                    console.log(result.data)
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
     }
 
-    const onTextChange = (e) => {
-        let changedNote = { ...addNote, [e.target.name]: e.target.value };
-        setAddNote(changedNote);
-    }
+
+
 
     return (
         <ClickAwayListener onClickAway={handleClickAway}>
-            <Container ref={containerRef}>
-                {   showTextField && 
-                    <TextField 
+            <Container >
+                {
+                    <TextField
                         placeholder="Title"
                         variant="standard"
                         InputProps={{ disableUnderline: true }}
                         style={{ marginBottom: 10 }}
-                        onChange={(e) => onTextChange(e)}
+                        onChange={(e) => setHeading(e.target.value)}
                         name='heading'
-                        value={addNote.heading}
                     />
                 }
                 <TextField
@@ -77,11 +96,10 @@ const Form = () => {
                     maxRows={Infinity}
                     variant="standard"
                     InputProps={{ disableUnderline: true }}
-                    onClick={onTextAreaClick}
-                    onChange={(e) => onTextChange(e)}
+                    onChange={(e) => setText(e.target.value)}
                     name='text'
-                    value={addNote.text}
                 />
+                <button onClick = {getData}>Get</button>
             </Container>
         </ClickAwayListener>
     )

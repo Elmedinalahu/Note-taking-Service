@@ -1,9 +1,10 @@
-import { useContext } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { Card, CardContent, CardActions, Typography, Tooltip, IconButton } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { ArchiveOutlined, DeleteOutlineOutlined as Delete, Edit, Search } from '@mui/icons-material';
 import { DataContext } from '../../context/DataProvider';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const Archive = styled(ArchiveOutlined)`
     color: purple;
@@ -20,31 +21,49 @@ const StyledCard = styled(Card)`
 `
 
 const Note = ({ note }) => {
+    const [notes, getNotes] = useState([]);
 
-    const { notes, setNotes, setArchiveNotes, setDeleteNotes } = useContext(DataContext);
+//     const { notes, setNotes, setArchiveNotes, setDeleteNotes } = useContext(DataContext);
 
-    const archiveNote = (note) => {
-        const updatedNotes = notes.filter(data => data.id !== note.id);
-        setNotes(updatedNotes);
-        setArchiveNotes(prevArr => [note, ...prevArr]);
+//     const archiveNote = (note) => {
+//         const updatedNotes = notes.filter(data => data.id !== note.id);
+//         setNotes(updatedNotes);
+//         setArchiveNotes(prevArr => [note, ...prevArr]);
+//     }
+
+//     const deleteNote = (note) => {
+//         const updatedNotes = notes.filter(data => data.id !== note.id);
+//         setNotes(updatedNotes);
+//         setDeleteNotes(prevArr => [note, ...prevArr]);
+//     }
+  
+
+    useEffect(() => {
+        getData();
+    }, []);
+
+    const getData = () => {
+        const url = 'https://localhost:7259/api/Notes';
+        axios.get(url).then((response) => {
+            const GetAllNotes = response.data;
+            console.log(notes);
+            getNotes(GetAllNotes);
+        }).catch((err) => {
+            console.log(err);
+        });
     }
-
-    const deleteNote = (note) => {
-        const updatedNotes = notes.filter(data => data.id !== note.id);
-        setNotes(updatedNotes);
-        setDeleteNotes(prevArr => [note, ...prevArr]);
-    }
-
-
+    
+    
+    
     return (
         <StyledCard>
                 <CardContent>
-                    <Typography>{note.heading}</Typography>
-                    <Typography>{note.text}</Typography>
+                    <Typography>{notes.heading}</Typography>
+                    <Typography>{notes.text}</Typography>
                 </CardContent>
                 <CardActions style={{ justifyContent: "flex-end" }}>
                 <Tooltip title="Edit">
-                    <Link to={"/note/" + note.id + "/edit"}>
+                    <Link to={"/note/" + notes.id + "/edit"}>
                     <IconButton>
                     <Edit 
                     fontSize="small"
@@ -54,7 +73,7 @@ const Note = ({ note }) => {
                     </Link>
                 </Tooltip>
                 <Tooltip title="View">
-                    <Link to={"/note/" + note.id}>
+                    <Link to={"/note/" + notes.id}>
                     <IconButton>
                     <Search 
                     fontSize="small"
@@ -67,7 +86,7 @@ const Note = ({ note }) => {
                     <IconButton>
                     <Archive 
                         fontSize="small"
-                        onClick={() => archiveNote(note)}
+                        // onClick={() => archiveNote(note)}
                     />
                     </IconButton>
                 </Tooltip>
@@ -76,7 +95,7 @@ const Note = ({ note }) => {
                     <Delete
                         fontSize="small"
                         style={{color: 'purple'}}
-                        onClick={() => deleteNote(note)}
+                        // onClick={() => deleteNote(note)}
                     />
                     </IconButton>
                 </Tooltip>
@@ -84,5 +103,7 @@ const Note = ({ note }) => {
         </StyledCard>
     )
 }
+
+
 
 export default Note;
